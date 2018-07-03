@@ -2,7 +2,7 @@ import todos from './todos';
 
 describe('todos', () => {
   beforeEach(() => {
-    todos.clear();
+    todos.clearAll();
   });
 
   it('adds a todo to the list', () => {
@@ -11,21 +11,25 @@ describe('todos', () => {
     expect(todos.list.has('do the thing!')).toBe.true;
   });
 
-  it('removes a todo from the list', () => {
+  it('completes a todo from the list', () => {
     const todo = 'do the thing!';
     todos.add(todo);
     expect(todos.list.has('do the thing!')).toBe.true;
+    expect(todos.list.get('do the thing!')).toBe.true;
 
-    todos.remove(todo);
-    expect(todos.list.has('do the thing!')).toBe.false;
+    todos.toggle(todo);
+    expect(todos.list.get('do the thing!')).toBe.false;
   });
 
-  it('clears the list', () => {
+  it('clears completed todos from the list', () => {
     todos.add('foo');
     todos.add('bar');
-    expect(todos.list.size).toBe(2);
+    todos.add('baz');
+    expect(todos.list.size).toBe(3);
 
+    todos.toggle('foo', true);
+    todos.toggle('bar', true);
     todos.clear();
-    expect(todos.list.size).toBe(0);
+    expect(todos.list.size).toBe(1);
   });
 });
