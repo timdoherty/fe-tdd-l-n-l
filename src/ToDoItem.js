@@ -6,7 +6,7 @@ export default ({ itemText, completed = false, onCompleted = () => {} }) => (
   <div>
     <Checkbox
       checked={completed}
-      onClick={() => onCompleted({ [itemText]: !completed })}
+      onClick={() => onCompleted({ todo: itemText, completed: !completed })}
     />
     {itemText}
   </div>
