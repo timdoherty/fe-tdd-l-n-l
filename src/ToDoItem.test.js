@@ -44,7 +44,7 @@ describe('<ToDoItem/>', () => {
 
       wrapper.find(Checkbox).simulate('click');
       expect(onCompletedMock.mock.calls.length).toBe(1);
-      expect(onCompletedMock.mock.calls[0][0]).toEqual({ 'foobarbaz': false });
+      expect(onCompletedMock.mock.calls[0][0]).toEqual({ todo: 'foobarbaz', completed: false });
     });
   });
 });
