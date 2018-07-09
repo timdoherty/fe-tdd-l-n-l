@@ -30,12 +30,17 @@ export default class ToDosList extends Component {
   onKeyUp = ({ key, target: { value } }) => {
     if (key === "Enter" && !! value) {
       this.props.todos.add(value);
-      this.setState({ todos: this.props.todos.all });
+      this.setState({ todos: this.props.todos[this.state.currentView] });
     }
   }
 
   setView = currentView => {
     this.setState({ currentView, todos: this.props.todos[currentView] });
+  }
+
+  clearCompleted = () => {
+    this.props.todos.clear();
+    this.setState({ todos: this.props.todos[this.state.currentView] })
   }
 
   render() {
@@ -72,6 +77,12 @@ export default class ToDosList extends Component {
             active={this.state.currentView === todoViews.COMPLETED}
           >
             Completed
+          </SegmentedController.Segment>
+          <SegmentedController.Segment
+            onClick={() => this.clearCompleted()}
+            active={false}
+          >
+            Clear Completed
           </SegmentedController.Segment>
         </SegmentedController>
       </div>
