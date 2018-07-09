@@ -32,7 +32,7 @@ describe('<ToDosList/>', () => {
         <ToDosList todos={todos} />
       );
       expect(wrapper.find(ToDoItem).length).toBe(0);
-      wrapper.find(Input).simulate('keyup', { target: { key: 'Enter', value: 'foobarbaz' } });
+      wrapper.find(Input).simulate('keyup', { key: 'Enter', target: { value: 'foobarbaz' } });
       wrapper.update();
       expect(wrapper.find(ToDoItem).length).toBe(1);
     });
