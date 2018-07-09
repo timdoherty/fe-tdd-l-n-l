@@ -14,15 +14,20 @@ export default class ToDosList extends Component {
   constructor(props) {
     super(props);
     const { todos } = props;
-    this.state = { todos: todos.all };
+    this.state = {
+      todos: todos.all,
+      currentView: todoViews.ALL
+    };
   }
 
   onCompletedToggled = ({ todo, completed }) => {
-    this.props.todos.toggle(todo, completed);
-    this.setState({ todos: this.props.todos.all });
+    this.props.todos.toggle(todo);
+    this.setState({
+      todos: this.props.todos[this.state.currentView]
+    });
   }
 
-  onKeyUp = ({ target: { key, value } }) => {
+  onKeyUp = ({ key, target: { value } }) => {
     if (key === "Enter" && !! value) {
       this.props.todos.add(value);
       this.setState({ todos: this.props.todos.all });
