@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Checkbox } from '@procore/core-react';
 
-export default ({ itemText, completed = false, onCompleted = () => {} }) => (
+export default ({ todo, completed = false, onCompleted = () => {} }) => (
   <div>
     <Checkbox
       checked={completed}
-      onClick={() => onCompleted({ todo: itemText, completed: !completed })}
+      onClick={() => onCompleted({ todo, completed: !completed })}
     />
-    {itemText}
+    {todo}
   </div>
 )

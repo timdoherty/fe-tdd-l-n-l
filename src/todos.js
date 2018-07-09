@@ -1,14 +1,28 @@
 let list = new Map();
 
 export default {
-  get list() {
+  get all() {
     return list;
+  },
+  get active() {
+    return new Map(
+      [...list.entries()].filter(
+        ([key, val]) => val === false
+      )
+    );
+  },
+  get completed() {
+    return new Map(
+      [...list.entries()].filter(
+        ([key, val]) => !!val
+      )
+    );
   },
   add(todo) {
     list.set(todo, false);
   },
-  toggle(todo, completed) {
-    list.set(todo, completed);
+  toggle(todo) {
+    list.set(todo, !list.get(todo));
   },
   clear() {
     [...list.entries()].forEach(([key, val]) => {
