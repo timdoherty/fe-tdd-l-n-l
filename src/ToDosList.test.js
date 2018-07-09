@@ -31,5 +31,9 @@ describe('<ToDosList/>', () => {
 
     it('shows only completed todos', () => {
     });
+
+    it('clears completed todos', () => {
+      
+    });
   });
 });

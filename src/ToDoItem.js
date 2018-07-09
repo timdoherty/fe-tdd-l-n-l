@@ -1,13 +1,14 @@
 import React from 'react';
 
-import { Checkbox } from '@procore/core-react';
+import { Checkbox, Card } from '@procore/core-react';
 
 export default ({ todo, completed = false, onCompleted = () => {} }) => (
-  <div>
+  <Card style={{ padding: '10px' }}>
     <Checkbox
       checked={completed}
       onClick={() => onCompleted({ todo, completed: !completed })}
-    />
-    {todo}
-  </div>
+    >
+      {todo}
+    </Checkbox>
+  </Card>
 )

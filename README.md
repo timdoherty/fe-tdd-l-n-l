@@ -13,3 +13,6 @@ Step 1 starts with BDD style assertions that might fit the basic requirements fo
 ## Step 2
 Step 2 starts with passing specs and refactored code for our vanilla JS "todos" module, along with BDD style assertions that might fit the basic requirements for a "todo item" React component.
 From here we'll try to make some of these tests pass, then refactor the passing code.
+
+## Step 3
+Step 3 starts with passing specs and refactored code for our "todo item" React component, along with BDD style assertions that might fit the basic requirements for a "todo list" React component.
