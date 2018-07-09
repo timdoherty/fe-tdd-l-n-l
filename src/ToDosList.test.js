@@ -77,5 +77,20 @@ describe('<ToDosList/>', () => {
 
       expect(wrapper.find(ToDoItem).length).toBe(1);
     });
+
+    it('clears completed todos', () => {
+      makeTodos(10);
+      const wrapper = shallow(
+        <ToDosList todos={todos} />
+      );
+
+      wrapper.find(ToDoItem).at(3).props().onCompleted({ todo: 'todo3', completed: true });
+      wrapper.find(ToDoItem).at(4).props().onCompleted({ todo: 'todo4', completed: true });
+
+      const segment = wrapper.find(SegmentedController.Segment).at(3);
+      segment.simulate('click');
+
+      expect(wrapper.find(ToDoItem).length).toBe(8);
+    });
   });
 });
