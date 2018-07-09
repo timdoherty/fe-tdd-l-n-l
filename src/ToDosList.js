@@ -1,27 +1,36 @@
 import React, { Component } from 'react';
 import { Input } from '@procore/core-react';
+import { SegmentedController } from '@procore/core-react';
 
 import ToDoItem from './ToDoItem';
-import todos from './todos';
+
+const todoViews = {
+  ALL: 'all',
+  ACTIVE: 'active',
+  COMPLETED: 'completed'
+};
 
 export default class ToDosList extends Component {
   constructor(props) {
     super(props);
     const { todos } = props;
-    this.state = { todos };
+    this.state = { todos: todos.all };
   }
 
   onCompletedToggled = ({ todo, completed }) => {
-    todos.toggle(todo, completed);
-    this.setState({ todos: todos.list });
+    this.props.todos.toggle(todo, completed);
+    this.setState({ todos: this.props.todos.all });
   }
 
   onKeyUp = ({ target: { key, value } }) => {
-    console.log({key}, {value})
     if (key === "Enter" && !! value) {
-      todos.add(value);
-      this.setState({ todos: todos.list });
+      this.props.todos.add(value);
+      this.setState({ todos: this.props.todos.all });
     }
+  }
+
+  setView = currentView => {
+    this.setState({ currentView, todos: this.props.todos[currentView] });
   }
 
   render() {
@@ -40,6 +49,26 @@ export default class ToDosList extends Component {
             onCompleted={this.onCompletedToggled}
           />
         ))}
+        <SegmentedController>
+          <SegmentedController.Segment
+            onClick={() => this.setView(todoViews.ALL)}
+            active={this.state.currentView === todoViews.ALL}
+          >
+            All
+          </SegmentedController.Segment>
+          <SegmentedController.Segment
+            onClick={() => this.setView(todoViews.ACTIVE)}
+            active={this.state.currentView === todoViews.ACTIVE}
+          >
+            Active
+          </SegmentedController.Segment>
+          <SegmentedController.Segment
+            onClick={() => this.setView(todoViews.COMPLETED)}
+            active={this.state.currentView === todoViews.COMPLETED}
+          >
+            Completed
+          </SegmentedController.Segment>
+        </SegmentedController>
       </div>
     );
   }

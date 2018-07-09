@@ -5,26 +5,18 @@ import { Checkbox } from '@procore/core-react';
 import ToDoItem from './ToDoItem';
 
 describe('<ToDoItem/>', () => {
-  beforeEach(() => {
-    // setup each test here (or use before() for all)
-  });
-
-  afterEach(() => {
-    // tear down each test here (or use after() for all)
-  });
-
   describe('Shallow Rendering', () => {
     it('shows the todo text', () => {
       const wrapper = shallow(
-        <ToDoItem itemText="foobarbaz" />
+        <ToDoItem todo="foobarbaz" />
       );
       expect(wrapper.text()).toMatch(/foobarbaz/);
     });
 
-    it('has a completed checkbox', () => {
+    it('has a completed indicator', () => {
       const wrapper = shallow(
         <ToDoItem
-          itemText="foobarbaz"
+          todo="foobarbaz"
           completed={true}
         />
       );
@@ -36,7 +28,7 @@ describe('<ToDoItem/>', () => {
       const onCompletedMock = jest.fn();
       const wrapper = shallow(
         <ToDoItem
-          itemText="foobarbaz"
+          todo="foobarbaz"
           completed={true}
           onCompleted={onCompletedMock}
         />
