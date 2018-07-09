@@ -16,7 +16,8 @@ export default class ToDosList extends Component {
     const { todos } = props;
     this.state = {
       todos: todos.all,
-      currentView: todoViews.ALL
+      currentView: todoViews.ALL,
+      currentTodo: ''
     };
   }
 
@@ -28,9 +29,12 @@ export default class ToDosList extends Component {
   }
 
   onKeyUp = ({ key, target: { value } }) => {
-    if (key === "Enter" && !! value) {
+    if (key === "Enter" && !!value) {
       this.props.todos.add(value);
       this.setState({ todos: this.props.todos.all });
+      if (this.inputRef) {
+        this.inputRef.value = '';
+      }
     }
   }
 
@@ -44,6 +48,7 @@ export default class ToDosList extends Component {
     return (
       <div>
         <Input
+          inputRef={node => this.inputRef = node}
           onKeyUp={this.onKeyUp}
         />
         {[...todos.entries()].map(([todo, completed]) => (

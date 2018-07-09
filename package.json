@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@procore/core-css": "^5.1.0",
+    "@procore/core-icons": "^5.2.0",
     "@procore/core-react": "^5.1.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

@@ -8,7 +8,9 @@ import todos from './todos';
 class App extends Component {
   render() {
     return (
-      <ToDosList todos={todos} />
+      <div style={{ width: '800px', margin: 'auto', padding: '20px' }}>
+        <ToDosList todos={todos} />
+      </div>
     );
   }
 }
