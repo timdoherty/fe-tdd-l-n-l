@@ -92,9 +92,5 @@ describe('<ToDosList/>', () => {
 
       expect(wrapper.find(ToDoItem).length).toBe(8);
     });
-
-    it('clears completed todos', () => {
-      
-    });
   });
 });

@@ -16,3 +16,9 @@ From here we'll try to make some of these tests pass, then refactor the passing 
 
 ## Step 3
 Step 3 starts with passing specs and refactored code for our "todo item" React component, along with BDD style assertions that might fit the basic requirements for a "todo list" React component.
+From here we'll try to make some of these tests pass, then refactor the passing code.
+
+## Step 4
+Step 4 starts with passing specs and refactored code for our "todo list" React component.
+From here we'll try to startup the application and make it look passable.
+
