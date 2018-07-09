@@ -22,3 +22,5 @@ From here we'll try to make some of these tests pass, then refactor the passing 
 Step 4 starts with passing specs and refactored code for our "todo list" React component.
 From here we'll try to startup the application and make it look passable.
 
+## Step 5
+Step 5 has the completed app, with a passable UX
