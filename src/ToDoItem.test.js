@@ -10,7 +10,7 @@ describe('<ToDoItem/>', () => {
       const wrapper = shallow(
         <ToDoItem todo="foobarbaz" />
       );
-      expect(wrapper.text()).toMatch(/foobarbaz/);
+      expect(wrapper.html()).toMatch(/foobarbaz/);
     });
 
     it('has a completed indicator', () => {
