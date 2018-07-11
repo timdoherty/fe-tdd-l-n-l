@@ -14,7 +14,6 @@ describe('todos', () => {
   it('completes a todo from the list', () => {
     const todo = 'do the thing!';
     todos.add(todo);
-    expect(todos.all.has('do the thing!')).toBe(true);
     expect(todos.all.get('do the thing!')).toBe(false);
 
     todos.toggle(todo);
