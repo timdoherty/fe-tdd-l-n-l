@@ -4,7 +4,9 @@ describe('todos', () => {
   beforeEach(() => {
   });
 
-  it.skip('adds a todo to the list', () => {
+  it('adds a todo to the list', () => {
+    todos.add('do the thing!')
+    expect(todos.all.size).toBe(1);
   });
 
   it.skip('completes a todo from the list', () => {
