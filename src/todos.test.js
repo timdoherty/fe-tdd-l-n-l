@@ -4,21 +4,21 @@ describe('todos', () => {
   beforeEach(() => {
   });
 
-  it('adds a todo to the list', () => {
+  it.skip('adds a todo to the list', () => {
   });
 
-  it('completes a todo from the list', () => {
+  it.skip('completes a todo from the list', () => {
   });
 
-  it('clears completed todos from the list', () => {
+  it.skip('clears completed todos from the list', () => {
   });
 
-  it('lists all todos', () => {
+  it.skip('lists all todos', () => {
   });
 
-  it('lists active todos', () => {
+  it.skip('lists active todos', () => {
   });
 
-  it('lists completed todos', () => {
+  it.skip('lists completed todos', () => {
   });
 });
