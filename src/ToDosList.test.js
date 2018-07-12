@@ -19,7 +19,7 @@ describe('<ToDosList/>', () => {
   });
 
   describe('Shallow Rendering', () => {
-    it('renders a ToDoItem for each todo', () => {
+    it('shows all todos', () => {
       makeTodos(10);
       const wrapper = shallow(
         <ToDosList todos={todos} />
@@ -42,7 +42,7 @@ describe('<ToDosList/>', () => {
       const wrapper = shallow(
         <ToDosList todos={todos} />
       );
-      wrapper.find(ToDoItem).at(3).props().onCompleted({ todo: 'todo3', completed: true });
+      wrapper.find(ToDoItem).at(3).props().onToggled({ todo: 'todo3', completed: true });
       wrapper.update()
       expect(wrapper.findWhere(
         n => n.type() === ToDoItem && n.props().completed
@@ -56,7 +56,7 @@ describe('<ToDosList/>', () => {
         <ToDosList todos={todos} />
       );
 
-      wrapper.find(ToDoItem).at(3).props().onCompleted({ todo: 'todo3', completed: true });
+      wrapper.find(ToDoItem).at(3).props().onToggled({ todo: 'todo3', completed: true });
 
       const segment = wrapper.find(SegmentedController.Segment).at(1);
       segment.simulate('click');
@@ -70,7 +70,7 @@ describe('<ToDosList/>', () => {
         <ToDosList todos={todos} />
       );
 
-      wrapper.find(ToDoItem).at(3).props().onCompleted({ todo: 'todo3', completed: true });
+      wrapper.find(ToDoItem).at(3).props().onToggled({ todo: 'todo3', completed: true });
 
       const segment = wrapper.find(SegmentedController.Segment).at(2);
       segment.simulate('click');
@@ -84,8 +84,8 @@ describe('<ToDosList/>', () => {
         <ToDosList todos={todos} />
       );
 
-      wrapper.find(ToDoItem).at(3).props().onCompleted({ todo: 'todo3', completed: true });
-      wrapper.find(ToDoItem).at(4).props().onCompleted({ todo: 'todo4', completed: true });
+      wrapper.find(ToDoItem).at(3).props().onToggled({ todo: 'todo3', completed: true });
+      wrapper.find(ToDoItem).at(4).props().onToggled({ todo: 'todo4', completed: true });
 
       const segment = wrapper.find(SegmentedController.Segment).at(3);
       segment.simulate('click');

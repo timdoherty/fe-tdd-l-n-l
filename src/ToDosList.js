@@ -21,7 +21,7 @@ export default class ToDosList extends Component {
     };
   }
 
-  onCompletedToggled = ({ todo, completed }) => {
+  onCompletedToggled = (todo) => {
     this.props.todos.toggle(todo);
     this.setState({
       todos: this.props.todos[this.state.currentView]
@@ -61,7 +61,7 @@ export default class ToDosList extends Component {
             key={todo}
             todo={todo}
             completed={completed}
-            onCompleted={this.onCompletedToggled}
+            onToggled={this.onCompletedToggled}
           />
         ))}
         <SegmentedController>
