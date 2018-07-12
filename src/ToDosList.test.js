@@ -17,7 +17,7 @@ describe('<ToDosList/>', () => {
   });
 
   describe('Shallow Rendering', () => {
-    it('renders a ToDoItem for each todo', () => {
+    it('shows all todos', () => {
     });
 
     it('adds a todo', () => {
