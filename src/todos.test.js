@@ -13,12 +13,12 @@ describe('todos', () => {
   it.skip('completes a todo from the list', () => {
   });
 
-  it.skip('clears completed todos from the list', () => {
-  });
-
   it.skip('lists active todos', () => {
   });
 
   it.skip('lists completed todos', () => {
+  });
+
+  it.skip('clears completed todos from the list', () => {
   });
 });
