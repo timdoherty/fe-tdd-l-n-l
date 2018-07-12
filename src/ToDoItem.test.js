@@ -20,7 +20,6 @@ describe('<ToDoItem/>', () => {
           completed={true}
         />
       );
-      expect(wrapper.find(Checkbox).exists()).toBe(true);
       expect(wrapper.find(Checkbox).props().checked).toBe(true);
     });
 
@@ -30,13 +29,12 @@ describe('<ToDoItem/>', () => {
         <ToDoItem
           todo="foobarbaz"
           completed={true}
-          onCompleted={onCompletedMock}
+          onToggled={onCompletedMock}
         />
       );
 
       wrapper.find(Checkbox).simulate('click');
-      expect(onCompletedMock.mock.calls.length).toBe(1);
-      expect(onCompletedMock.mock.calls[0][0]).toEqual({ todo: 'foobarbaz', completed: false });
+      expect(onCompletedMock).toBeCalledWith('foobarbaz');
     });
   });
 });

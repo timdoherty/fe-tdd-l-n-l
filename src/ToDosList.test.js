@@ -19,7 +19,7 @@ describe('<ToDosList/>', () => {
   });
 
   describe('Shallow Rendering', () => {
-    it('renders a ToDoItem for each todo', () => {
+    it('shows all todos', () => {
       makeTodos(10);
       const wrapper = shallow(
         <ToDosList todos={todos} />
