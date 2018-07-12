@@ -5,13 +5,14 @@ describe('todos', () => {
     todos.clearAll();
   });
 
-  it('adds a todo to the list', () => {
-    todos.add('do the thing!');
+  it('lists all todos', () => {
+    const todo = 'do the thing!';
+    todos.add(todo);
     expect(todos.all.size).toBe(1);
-    expect(todos.all.has('do the thing!')).toBe(true);
+    expect(todos.all.has(todo)).toBe(true);
   });
 
-  it('completes a todo from the list', () => {
+  it('adds a todo to the list', () => {
     const todo = 'do the thing!';
     todos.add(todo);
     expect(todos.all.get('do the thing!')).toBe(false);
@@ -20,7 +21,7 @@ describe('todos', () => {
     expect(todos.all.get('do the thing!')).toBe(true);
   });
 
-  it('clears completed todos from the list', () => {
+  it('completes a todo from the list', () => {
     todos.add('foo');
     todos.add('bar');
     todos.add('baz');
@@ -30,15 +31,6 @@ describe('todos', () => {
     todos.toggle('bar');
     todos.clear();
     expect(todos.all.size).toBe(1);
-  });
-
-  it('lists all todos', () => {
-    todos.add('foo');
-    todos.add('bar');
-    todos.add('baz');
-    todos.toggle('foo');
-
-    expect(todos.all.size).toBe(3);
   });
 
   it('lists active todos', () => {
@@ -58,4 +50,14 @@ describe('todos', () => {
 
     expect(todos.completed.size).toBe(1);
   });
+
+  it('clears completed todos from the list', () => {
+    todos.add('foo');
+    todos.add('bar');
+    todos.add('baz');
+    todos.toggle('foo');
+
+    expect(todos.all.size).toBe(3);
+  });
+
 });
