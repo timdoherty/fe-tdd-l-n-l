@@ -59,5 +59,4 @@ describe('todos', () => {
 
     expect(todos.all.size).toBe(3);
   });
-
 });
