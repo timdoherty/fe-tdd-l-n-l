@@ -56,7 +56,7 @@ export default class ToDosList extends Component {
             key={todo}
             todo={todo}
             completed={completed}
-            onCompleted={this.onCompletedToggled}
+            onToggled={this.onCompletedToggled}
           />
         ))}
         <SegmentedController>
