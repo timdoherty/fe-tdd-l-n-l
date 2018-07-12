@@ -20,7 +20,7 @@ export default class ToDosList extends Component {
     };
   }
 
-  onCompletedToggled = ({ todo, completed }) => {
+  onCompletedToggled = (todo) => {
     this.props.todos.toggle(todo);
     this.setState({
       todos: this.props.todos[this.state.currentView]
