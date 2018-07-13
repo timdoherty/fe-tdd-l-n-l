@@ -6,13 +6,13 @@ import ToDoItem from './ToDoItem';
 
 describe('<ToDoItem/>', () => {
   describe('Shallow Rendering', () => {
-    it('shows the todo text', () => {
+    it.skip('shows the todo text', () => {
     });
 
-    it('has a completed indicator', () => {
+    it.skip('has a completed indicator', () => {
     });
 
-    it('calls back when completed is toggled', () => {
+    it.skip('calls back when completed is toggled', () => {
     });
   });
 });
