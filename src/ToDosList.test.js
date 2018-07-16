@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import ToDosList from './ToDosList';
 import ToDoItem from './ToDoItem';
@@ -17,22 +17,22 @@ describe('<ToDosList/>', () => {
   });
 
   describe('Shallow Rendering', () => {
-    it('shows all todos', () => {
+    it.skip('shows all todos', () => {
     });
 
-    it('adds a todo', () => {
+    it.skip('adds a todo', () => {
     });
 
-    it('completes a todo', () => {
+    it.skip('completes a todo', () => {
     });
 
-    it('shows only active todos', () => {
+    it.skip('shows only active todos', () => {
     });
 
-    it('shows only completed todos', () => {
+    it.skip('shows only completed todos', () => {
     });
 
-    it('clears completed todos', () => {
+    it.skip('clears completed todos', () => {
       
     });
   });
