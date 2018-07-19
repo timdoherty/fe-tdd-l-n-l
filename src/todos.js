@@ -2,7 +2,7 @@ let list = new Map();
 
 export default {
   get all() {
-    return list;
+    return new Map(list);
   },
   get active() {
     return new Map(
